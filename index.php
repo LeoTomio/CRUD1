@@ -7,7 +7,7 @@ require './Modelo/Pessoa.php';
         <meta charset="UTF-8">
         <title></title>
 
-        <link rel="stylesheet" href="css/css.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src='js/jquery.mask.js' ></script>
 
@@ -29,57 +29,60 @@ require './Modelo/Pessoa.php';
             $callClass->inserir($nome, $idade, $cpf, $telefone, $sexo, $endereco);
         }
         ?>
-
-        <form method="post">
+        <h1>Lista de Cadastrados</h1>
+       <form method="post">
             <table>
                 <tr>
                     <td>Nome</td>
                     <td align="center" id="cad">
-                        <input id="nome" class='campo' type="text" name="nome">
+                        <input id="nome" class='campo' type="text" name="nome" placeholder="Nome">
                     </td>
                 </tr>
                 <tr>
                     <td>Idade</td>
                     <td align="center">
-                        <input id="idade" class='campo' type="text"  name="idade" >
+                        <input id="idade" class='campo' type="text"  name="idade" placeholder="idade">
                     </td>
                 </tr>
                 <tr>
                     <td>Cpf</td>
                     <td align="center">
-                        <input id="cpf" class='campo' type="text"  name="cpf" size="20" width="50px" height="50px">
+                        <input id="cpf" class='campo' type="text"  name="cpf"  placeholder="Cpf">
                     </td>
                 </tr>
                 <tr>
                     <td>Telefone</td>
                     <td align="center">
-                        <input id="telefone" class='campo' type="text"  name="telefone">
+                        <input id="telefone" class='campo' type="text"  name="telefone" placeholder="Telefone">
                     </td>
                 </tr>
                 <tr>
                     <td>Sexo</td>
                     <td align="center">
-                        <input id="sexo" class='campo' type="text"  name="sexo" >
+                        <input id="sexo" class='campo' type="text"  name="sexo" placeholder="Sexo">
                     </td>
                 </tr>
                 <tr>
                     <td>Endereco</td>
                     <td align="center">
-                        <input id="endereco" class='campo' type="text"  name="endereco" >
+                        <input id="endereco" class='campo' type="text"  name="endereco" placeholder="Endereço">
                     </td>
                 </tr>
             </table>
-            <button type="submit" name="cadastrar">Cadastrar</button>
+            <button type="submit" id="botao" name="cadastrar" >Cadastrar</button>
 
         </form>
 
         <br><br>
-        <table>
+        <table border="5" >
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Idade</th>
                     <th>Cpf</th>
+                    <th>Telefone</th>
+                    <th>Sexo</th>
+                    <th>Endereço</th>
                     <th>Acao</th>
                 </tr>
             </thead>
@@ -97,6 +100,15 @@ require './Modelo/Pessoa.php';
                         </td>
                         <td>
                             <?= $usuario["cpf"] ?>
+                        </td>
+                        <td>
+                            <?= $usuario["telefone"] ?>
+                        </td>
+                        <td>
+                            <?= $usuario["sexo"] ?>
+                        </td>
+                        <td>
+                            <?= $usuario["endereco"] ?>
                         </td>
                         <td>
                             <a href="excluir.php?codigo=<?= $usuario['codigo'] ?>">Deletar</a>
